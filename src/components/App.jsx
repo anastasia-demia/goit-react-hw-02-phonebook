@@ -1,10 +1,12 @@
 import { Component } from 'react';
 import { Section } from './Section/Section';
 import { Button } from './Button/Button';
+import contacts from './Data/contacts.json';
+
 
 export class App extends Component {
   state = {
-    contacts: [],
+    contacts: contacts,
     name: "",
   };
 
@@ -20,15 +22,8 @@ export class App extends Component {
         <Button text="Add Contact"/>
       </Section>
       <Section
-      title="Find Contacts By Name"
-      >
-        <Button text="Find"/>
-      </Section>
-      <Section
       title="Contacts"
-      >
-        <Button text="Delete"/>
-      </Section>
+      ></Section>
       </>
     )
   }
