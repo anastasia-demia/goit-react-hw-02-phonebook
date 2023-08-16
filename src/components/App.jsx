@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import { Section } from './Section/Section';
 import { Button } from './Button/Button';
+import { Form } from './Form/Form';
 import contacts from './Data/contacts.json';
 
 
