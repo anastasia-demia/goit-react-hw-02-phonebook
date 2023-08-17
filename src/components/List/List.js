@@ -6,10 +6,11 @@ export const List = ({ data, children }) => {
     <ul className={css.ul} >
       {data.map(({ id, name, number}) => {
         return (
-          <li className={css.li} key={id}>{name} {number}</li>
+          <li className={css.li} key={id}>{name}:<b>{number}</b>
+          {children}
+          </li>
         );
       })}
-      {children}
     </ul>
     )
 }
