@@ -4,5 +4,5 @@
 
 .li{
   border: 10px;
-  list-style: none;
+  list-style: circle;
 }

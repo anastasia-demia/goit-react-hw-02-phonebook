@@ -9,7 +9,7 @@ export const List = ({ data, children }) => {
           <li className={css.li} key={id}>{name} {number}</li>
         );
       })}
-
+      {children}
     </ul>
     )
 }
