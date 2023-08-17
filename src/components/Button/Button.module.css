@@ -1,4 +1,6 @@
 .button {
+  display: flex;
+  align-self: center;
   padding: 10px 20px;
   background-color: #663e24;
   color: antiquewhite;

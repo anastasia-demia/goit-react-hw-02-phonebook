@@ -20,6 +20,10 @@ export class App extends Component {
       <>
       <Section
       title="Phonebook">
+        <Form>
+          name="Name"
+          number="Number"
+        </Form>
         <Button text="Add Contact"/>
       </Section>
       <Section
