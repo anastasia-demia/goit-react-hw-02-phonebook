@@ -1,10 +1,10 @@
 import PropTypes from 'prop-types';
 import css from './Form.module.css';
 
-export const Form = () => {
+export const Form = ({ name, number, children }) => {
   return (
     <form className={css.form}>
-      <h2 className={css.title}>Name</h2>
+      <h2 className={css.title}>{name}</h2>
       <input
         className={css.input}
         name="name"
@@ -13,7 +13,7 @@ export const Form = () => {
         title="Name may contain only letters, apostrophe, dash and spaces."
         required
       ></input>
-      <h2 className={css.title}>Number</h2>
+      <h2 className={css.title}>{number}</h2>
       <input
         className={css.input}
         name="number"
@@ -22,6 +22,7 @@ export const Form = () => {
         title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
         required
       ></input>
+      {children}
     </form>
   );
 };

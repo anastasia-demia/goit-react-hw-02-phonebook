@@ -1,0 +1,8 @@
+.ul {
+  background-color: bisque;
+}
+
+.li{
+  border: 10px;
+  list-style: none;
+}
