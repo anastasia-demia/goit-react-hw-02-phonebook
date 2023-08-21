@@ -9,24 +9,23 @@ import contacts from './Data/contacts.json';
 export class App extends Component {
   state = {
     contacts: contacts,
-    name: "",
+    name: '',
+    number: '',
+    filter: '',
   };
 
-
-
   render() {
-
 
     return(
       <>
       <Section title="Phonebook">
         <Form name="Name" number="Number">
-        <Button text="Add Contact"/>
+        <Button text="Add Contact" onBtnClick={this.addContact}/>
         </Form>
       </Section>
       <Section title="Contacts">
         <List data={contacts} >
-        <Button text="Delete"/>
+        <Button text="Delete" onBtnClick={this.removeContact}/>
         </List>
       </Section>
       </>

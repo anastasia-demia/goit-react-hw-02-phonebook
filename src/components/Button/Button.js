@@ -5,7 +5,7 @@ export const Button = ({
   text, onBtnClick
 }) => {
   return (
-    <button type="button" onClick={onBtnClick} className={css.button}>
+    <button type="submit" onClick={onBtnClick} className={css.button}>
       {text}
     </button>
   )
@@ -13,5 +13,5 @@ export const Button = ({
 
 Button.propTypes = {
   text: PropTypes.string.isRequired,
-  // onBtnClick: PropTypes.func.isRequired,
+  onBtnClick: PropTypes.func.isRequired,
 };

@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import css from './Form.module.css';
 
 export const Form = ({ name, number, children }) => {
+
   return (
     <form className={css.form}>
       <h2 className={css.title}>{name}</h2>

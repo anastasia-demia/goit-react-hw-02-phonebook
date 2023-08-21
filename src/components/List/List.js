@@ -1,4 +1,4 @@
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import css from './List.module.css';
 
 export const List = ({ data, children }) => {
@@ -15,8 +15,8 @@ export const List = ({ data, children }) => {
     )
 }
 
-// List.propTypes = {
-//   name: PropTypes.array.isRequired,
-//   number: PropTypes.string.isRequired,
-// };
+List.propTypes = {
+  data: PropTypes.array.isRequired,
+  children: PropTypes.element.isRequired,
+};
 
