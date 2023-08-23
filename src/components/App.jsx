@@ -3,6 +3,7 @@ import { Section } from './Section/Section';
 import { Button } from './Button/Button';
 import { Form } from './Form/Form';
 import { List } from './List/List';
+import { nanoid } from 'nanoid';
 import contacts from './Data/contacts.json';
 
 
@@ -14,12 +15,14 @@ export class App extends Component {
     filter: '',
   };
 
+  contactID = nanoid();
+
   addContact = () => {
 
   }
 
   removeContact = () => {
-    
+
   }
 
   render() {
