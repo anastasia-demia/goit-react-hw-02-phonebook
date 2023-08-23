@@ -14,6 +14,14 @@ export class App extends Component {
     filter: '',
   };
 
+  addContact = () => {
+
+  }
+
+  removeContact = () => {
+    
+  }
+
   render() {
 
     return(
