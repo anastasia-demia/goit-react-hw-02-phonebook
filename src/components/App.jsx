@@ -1,43 +1,49 @@
 import { Component } from 'react';
 import { Section } from './Section/Section';
-import { Button } from './Button/Button';
+// import { Button } from './Button/Button';
 import { Form } from './Form/Form';
 import { List } from './List/List';
 import { nanoid } from 'nanoid';
-import contacts from './Data/contacts.json';
+import startingContacts from './Data/contacts.json';
 
 
 export class App extends Component {
   state = {
-    contacts: contacts,
-    name: '',
-    number: '',
+    contacts: startingContacts,
     filter: '',
   };
 
-  contactID = nanoid();
+  addContact = ({ name, number }) => {
+    const contact = {
+      id: nanoid(),
+      name,
+      number,
+    };
+    this.setState(({ contacts }) => ({
+      contacts: [...contacts, contact],
+    }));
+  };
 
-  addContact = () => {
+  removeContact = ID => {
+    this.setState(prevState => ({
+      contacts: prevState.contacts.filter(contact => contact.id !== ID),
+    }));
+  };
 
-  }
-
-  removeContact = () => {
-
+  clickOnBtn = () => {
+    console.log("click bbb");
   }
 
   render() {
+    const { contacts, filter } = this.state;
 
     return(
       <>
       <Section title="Phonebook">
-        <Form name="Name" number="Number">
-        <Button text="Add Contact" onBtnClick={this.addContact}/>
-        </Form>
+        <Form currentContacts={contacts} onSubmit={this.addContact}></Form>
       </Section>
       <Section title="Contacts">
-        <List data={contacts} >
-        <Button text="Delete" onBtnClick={this.removeContact}/>
-        </List>
+        <List data={contacts} onDelete={this.removeContact}></List>
       </Section>
       </>
     )
