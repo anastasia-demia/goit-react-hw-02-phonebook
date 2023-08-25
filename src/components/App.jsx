@@ -1,11 +1,10 @@
 import { Component } from 'react';
 import { Section } from './Section/Section';
-// import { Button } from './Button/Button';
 import { Form } from './Form/Form';
 import { List } from './List/List';
+import { Filter } from './Filter/Filter';
 import { nanoid } from 'nanoid';
 import startingContacts from '../data/contacts.json';
-import { Filter } from './Filter/Filter';
 
 
 export class App extends Component {
