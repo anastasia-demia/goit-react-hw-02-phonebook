@@ -5,6 +5,7 @@ import { Form } from './Form/Form';
 import { List } from './List/List';
 import { nanoid } from 'nanoid';
 import startingContacts from '../data/contacts.json';
+import { Filter } from './Filter/Filter';
 
 
 export class App extends Component {
@@ -34,6 +35,14 @@ export class App extends Component {
     console.log("click bbb");
   }
 
+  onXBtnClick = () => {
+    this.setState({ filter: '' });
+  };
+
+  filterChange = (event) => {
+    this.setState({ filter: event.target.value });
+  };
+
   render() {
     const { contacts, filter } = this.state;
 
@@ -43,6 +52,7 @@ export class App extends Component {
         <Form currentContacts={contacts} onSubmit={this.addContact}></Form>
       </Section>
       <Section title="Contacts">
+        <Filter filter={filter} onClear={this.onXBtnClick} onChange={this.filterChange}></Filter>
         <List data={contacts} onDelete={this.removeContact}></List>
       </Section>
       </>
