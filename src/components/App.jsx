@@ -4,7 +4,7 @@ import { Section } from './Section/Section';
 import { Form } from './Form/Form';
 import { List } from './List/List';
 import { nanoid } from 'nanoid';
-import startingContacts from './Data/contacts.json';
+import startingContacts from '../data/contacts.json';
 
 
 export class App extends Component {
@@ -25,9 +25,9 @@ export class App extends Component {
   };
 
   removeContact = ID => {
-    this.setState(prevState => ({
-      contacts: prevState.contacts.filter(contact => contact.id !== ID),
-    }));
+    this.setState({
+      contacts: this.state.contacts.filter((contact) => contact.id !== ID),
+    });
   };
 
   clickOnBtn = () => {
