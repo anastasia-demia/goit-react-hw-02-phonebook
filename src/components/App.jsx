@@ -33,7 +33,7 @@ export class App extends Component {
 
   clickOnBtn = () => {
     console.log("click bbb");
-  }
+  };
 
   onXBtnClick = () => {
     this.setState({ filter: '' });
@@ -43,8 +43,16 @@ export class App extends Component {
     this.setState({ filter: event.target.value });
   };
 
+  showFilteredContacts = () => {
+    const standardFilter = this.state.filter.toLowerCase();
+    return this.state.contacts.filter(contact =>
+      contact.name.toLowerCase().includes(standardFilter)
+    );
+  };
+
   render() {
     const { contacts, filter } = this.state;
+    const filteredContacts = this.showFilteredContacts();
 
     return(
       <>
@@ -53,9 +61,9 @@ export class App extends Component {
       </Section>
       <Section title="Contacts">
         <Filter filter={filter} onClear={this.onXBtnClick} onChange={this.filterChange}></Filter>
-        <List data={contacts} onDelete={this.removeContact}></List>
+        <List data={filteredContacts} onDelete={this.removeContact}></List>
       </Section>
       </>
     )
-  }
+  };
 };
