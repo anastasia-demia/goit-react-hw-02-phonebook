@@ -25,18 +25,6 @@ export class Form extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
-
-    // const { parts } = event.currentTarget;
-
-    // if (
-    //   this.props.startingContacts.map(
-    //     contact => parts.name.value === contact.name
-    //   )
-    // ) {
-    //   return Notify.warning(`${parts.name.value} is already in contacts!`);
-    // }
-
     this.props.onSubmit(this.state);
     event.currentTarget.reset();
     this.reset();
