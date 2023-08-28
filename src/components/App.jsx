@@ -4,6 +4,7 @@ import { Form } from './Form/Form';
 import { List } from './List/List';
 import { Filter } from './Filter/Filter';
 import { nanoid } from 'nanoid';
+import { Notify } from 'notiflix';
 import startingContacts from '../data/contacts.json';
 
 
@@ -19,9 +20,19 @@ export class App extends Component {
       name,
       number,
     };
-    this.setState(({ contacts }) => ({
-      contacts: [...contacts, contact],
-    }));
+
+    if (
+      !this.state.contacts.find(
+        ({ name }) => name.toLowerCase() === contact.name.toLowerCase()
+      )
+    ) {
+      this.setState(({ contacts }) => ({
+        contacts: [...contacts, contact],
+      }));
+    } else {
+      return Notify.warning(`${contact.name} is already in contacts!`);
+    }
+
   };
 
   removeContact = ID => {
@@ -50,13 +61,13 @@ export class App extends Component {
   };
 
   render() {
-    const { contacts, filter } = this.state;
+    const { filter } = this.state;
     const filteredContacts = this.showFilteredContacts();
 
     return(
       <>
       <Section title="Phonebook">
-        <Form currentContacts={contacts} onSubmit={this.addContact}></Form>
+        <Form onSubmit={this.addContact}></Form>
       </Section>
       <Section title="Contacts">
         <Filter filter={filter} onClear={this.onXBtnClick} onChange={this.filterChange}></Filter>

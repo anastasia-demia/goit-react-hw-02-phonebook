@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import { Component } from 'react';
 import css from './Form.module.css';
 import { nanoid } from 'nanoid';
-import { Notify } from 'notiflix';
 import { Button } from 'components/Button/Button';
 
 export class Form extends Component {
@@ -62,11 +61,4 @@ export class Form extends Component {
 
 Form.propTypes = {
   onSubmit: PropTypes.func.isRequired,
-  startingContacts: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.string.isRequired,
-      name: PropTypes.string.isRequired,
-      number: PropTypes.string.isRequired,
-    })
-  ),
 }
